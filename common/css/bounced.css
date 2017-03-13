@@ -1,0 +1,150 @@
+@-webkit-keyframes bounceInUp {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 3000px, 0);
+    transform: translate3d(0, 3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+#miao .bounced{
+  position: fixed;
+  z-index: 999;
+  font-size: 15px;
+  z-index: 999;
+  font-size: 15px;
+  
+}
+
+#miao .bounced#error{
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  background-color: rgba(39,40,34,0.7);
+  bottom: 50px;
+  color: white;
+  text-align: center;
+  -webkit-animation-name: bounceInUp;
+  animation-name: bounceInUp;
+  left: 3em;
+  right: 3em;
+  margin: 0 auto;
+}
+#miao .bounced#success{
+  background-color: #1FCC6C;
+  color: white;
+  text-align: center;
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0.5em 1em;
+}
+#miao .bounced#confirm{
+  background: white;
+  height: 225px;
+  width: 270px;
+  border-radius: 5px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+#miao .bounced#confirm .bounced-header{
+  width: 100%;
+  font-size: 17px;
+  text-align: center;
+  line-height: 45px;
+}
+#miao .bounced#confirm .bounced-content{
+  overflow: hidden;
+}
+#miao .bounced#confirm .bounced-content .swiper-container{
+  height: 100%;
+}
+#miao .bounced#confirm .bounced-content .swiper-container .swiper-wapper{
+  height: 100%;
+}
+#miao .bounced#confirm .bounced-content .frame-fixed{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 200px;
+  height: 38px;
+  line-height: 38px;
+  border-top: 1px solid #D7D7D7;
+  border-bottom: 1px solid #D7D7D7;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: -1;
+}
+#miao .bounced#confirm .bounced-content .swiper-slide{
+  line-height: 38px;
+  text-align: center;
+}
+#miao .bounced#confirm .bounced-footer{
+  width: 100%;
+  line-height: 50px;
+  font-size: 17px;
+  text-align: center;
+}
+#miao .bounced#confirm .bounced-footer .ok, #miao .bounced#confirm .bounced-footer .cancel{
+  
+  float: left;
+  height: 100%;
+  box-sizing: border-box;
+  width: 50%;
+  align-items:center;
+}
+#miao .bounced#confirm .ok{
+  border-left: 2px solid #DCDCDC;
+}
