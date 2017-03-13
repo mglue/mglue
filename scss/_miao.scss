@@ -1,0 +1,124 @@
+
+
+
+@mixin GradLT($start, $end){
+    background: -webkit-linear-gradient(left top, $start , $end); 
+    background: -o-linear-gradient(bottom right, $start, $end); 
+    background: -moz-linear-gradient(bottom right, $start, $end); 
+    background: linear-gradient(to bottom right, $start , $end); 
+}
+
+
+@mixin GradDeg($var...) {
+  background: -webkit-linear-gradient($var); 
+  background: -o-linear-gradient($var); 
+  background: -moz-linear-gradient($var); 
+  background: linear-gradient($var);
+}
+
+
+/**
+* 流布局
+*/
+
+//水平位置
+@mixin FlexH($pos){
+	justify-content: $pos;
+	display: -webkit-flex;
+}
+
+//垂直位置
+@mixin FlexV($pos){
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  //display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+	 -webkit-box-align:$pos;
+  -webkit-align-items:$pos;
+  -ms-flex-align:$pos;
+  align-items:$pos;
+}
+
+//垂直水平位置
+@mixin FlexHV($h_pos, $v_pos){
+	align-items:$v_pos;
+	justify-content: $h_pos;
+	display: -webkit-box; 
+  display: -webkit-flex;
+  display: box;
+  display: flex;
+}
+@mixin Flex{
+    display: -webkit-box; 
+    display: -webkit-flex;
+    display: box;
+    display: flex;
+}
+
+//给子元素设置，等比例缩放
+@mixin FlexAvg{
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  box-flex: 1;
+  flex: 1;
+
+}
+
+//整体内容垂直居中
+@mixin AlignContent($pos){
+  align-content: $pos;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap:wrap;
+  flex-wrap:wrap;
+
+}
+
+/**
+* placeholder颜色
+**/
+
+@mixin PlaceholderColor($color){
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $color; opacity:1; 
+  }
+
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: $color;
+      opacity:1;
+  }
+
+  input:-ms-input-placeholder{
+      color: $color;
+      opacity:1;
+  }
+
+  input::-webkit-input-placeholder{
+      color: $color;
+      opacity:1;
+  }
+}
+
+
+@mixin Transform($var, $pos:center center){
+  
+  -ms-transform:$var;   
+  -ms-transform-origin:center;
+  -moz-transform:$var;  
+  -moz-transform-origin: $pos;
+  -webkit-transform:$var; 
+  -o-transform:$var;  
+  -o-transform-origin: $pos;
+  transform:$var;
+  transform-origin:$pos;
+}
+
+
+@mixin Calc($prop, $var...) {
+  #{$prop}:-moz-calc(#{$var});
+  #{$prop}:-webkit-calc(#{$var});
+  #{$prop}: calc(#{$var});
+}
+
+
