@@ -1,0 +1,344 @@
+@import "miao";
+
+/**
+* 以下样式按照缩放比dpr=2来计算的，
+*
+*/
+/*****************************************/
+/**
+颜色
+*/
+$primaryColor: #0ac2b5;//主题色
+$minorColor: #FA852E;//次要色
+
+$lightGrey: #f5f5f5; // body背景色
+$grey: #ccc;   // boder边框色
+$darkGrey: #7a7a7a; // 暗色字体信息
+$textColor: #30303c; //正文字体色
+
+
+/**
+字体大小
+*/
+$fontSize: 14px; //文字多时的正文字体大小
+$contentFontSize: 16px; //大的正文字号,小标题
+$infoFontSize: 13px; //副文案标注信息字号，版权信息
+$microFontSize: 11px; //最小字体
+$navFontSize: 15px; //导航字号
+$btnFontSize: 18px; //一般按钮字体大小
+$btnMediumFontSize: 16px; //中按钮字体大小
+$btnMiniFontSize: 13px; //小按钮字体大小
+$albFontSize: 40px; //只能为阿拉伯数字信息，如金额、时间等
+//表单
+$labelFontSize: 14px; //form表单label
+$inputFontSize: 14px; //input字体大小
+//html
+$rfs: 32;//rootFontSize简写，根html大小
+
+
+/**
+* icon大小
+*/
+$iconSize: 20px;
+$iconLgSize: 40px;//大icon
+
+
+/**
+* 尺寸大小
+*/
+$formHeight: 34px; //form元素行高
+
+/*********************************************/
+
+
+/**
+* 颜色样式
+*/
+.m_text-info{//文本辅助信息
+  color: $darkGrey;
+  font-size: $infoFontSize;
+  line-height: 1.5em;
+}
+.m_minor-color{//主题辅助色
+  color: $minorColor;
+}
+.m_primary-color{//主题色
+  color: $primaryColor;
+}
+
+
+
+/**
+* body样式
+*/
+.m_body{
+  max-width: 640px;
+  min-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+//重置样式
+.m_reset{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+//阴影
+.m_shadow{
+  box-shadow: 0 10px 10px  -5px #ccc;
+}
+//清除浮动
+.m_clear-float:after{
+  content: " ";
+  height: 0;
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+
+/**
+按钮样式
+*/
+.m_btn{
+  height: 47px;
+  font-size: $btnFontSize;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 47px;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  padding-left: 14px;
+  padding-right: 14px;
+  box-sizing: border-box;
+}
+.m_btn-medium{
+  height: 35px;
+  font-size: $btnMediumFontSize;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 35px;
+  text-align: center;
+  border-radius: 4px;
+  text-decoration: none;
+  padding-left: 30px;
+  padding-right: 30px;
+  box-sizing: border-box;
+}
+.m_btn-primary{
+  background-color: $primaryColor;
+  color: white;
+}
+//禁用状态
+.m_disabled{
+  opacity: 0.3;
+}
+.m_btn-primary-plain{
+  border: 1px solid $primaryColor;
+  color: $primaryColor;
+}
+.m_btn-minor{
+  background-color: $minorColor;
+  color: white;
+}
+
+/**
+* 导航
+*/
+.m_tabbar{
+  @include FlexHV(center, stretch);
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  font-size: $navFontSize;
+  >*{
+    @include FlexAvg;
+  }
+}
+.m_tabbar-primary-plain{
+  color: black;
+  background-color: white;
+  >.m_selected{
+    border-bottom: 1px solid $primaryColor!important;
+    color: $primaryColor!important;
+  }
+}
+
+/**
+图标
+*/
+.m_icon-cell{
+  width: $iconSize;
+  height: $iconSize;
+  text-align: center;
+  &>img.m_icon{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+  }
+}
+.m_icon-cell-lg{
+  width: $iconLgSize;
+  height: $iconLgSize;
+  &>img.m_icon{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+  }
+}
+/**
+* 章节题目样式
+*/
+.m_sec-title{
+    @include FlexV(center);
+    font-size: $contentFontSize;
+    &>.m_sec-bd{
+      @include FlexAvg;
+      margin-left: 5px;
+      margin-right: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+}
+
+/**
+表单样式
+*/
+.m_form-e{
+  height: $formHeight;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: $inputFontSize;
+  color: $textColor;
+  border: 1px solid $grey;
+  background-image: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  width: 100%;
+}
+.m_form-group{
+  border: 1px solid $grey;
+  border-radius: 5px;
+  @include Flex;
+  .m_label{
+    font-size: $labelFontSize;
+    width: 70px;
+    margin-right: 5px;
+    line-height: $formHeight;
+    display: inline-block;
+    text-align: justify;
+  }
+  .m_form-e{
+    border: none;
+    width: 100%;
+    @include FlexAvg;
+    @include PlaceholderColor($darkGrey);
+  }
+  .m_form-ft{
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: $formHeight;
+    line-height: $formHeight;
+    margin-left: 5px;
+    font-size: $inputFontSize;
+  }
+}
+
+.m_radio-cell{
+  .m_radio{
+    position: absolute;
+    left: -9999em;
+    &:checked + .m_radio-img{
+      background-image: url(../imgs/calc/select.png);
+    }
+  }
+  .m_radio-img{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-image: url(../imgs/calc/uncheck.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+}
+
+.m_form-e{
+  height: $formHeight;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: $inputFontSize;
+  color: $textColor;
+  border: 1px solid $grey;
+  background-image: none;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+.m_form-inline{
+  @include FlexV(center);
+  >.m_form-bd{
+    @include FlexAvg;
+  }
+  >.m_label{
+    font-size: $labelFontSize;
+    width: 70px;
+    margin-right: 5px;
+    line-height: $formHeight;
+    display: inline-block;
+    
+  }
+  >.m_form-group{
+    @include FlexAvg;
+  }
+}
+.m_form-group{
+  border: 1px solid $grey;
+  >.m_form-e{
+    border: none;
+    width: 100%;
+    @include PlaceholderColor($darkGrey);
+  }
+  >.m_form-ft{
+    display: inline-block;
+    height: $formHeight;
+    line-height: $formHeight;
+    margin-left: 5px;
+    font-size: $inputFontSize;
+  }
+}
+
+.m_radio-cell{
+  @include FlexV(center);
+  >.m_label{
+    font-size: $inputFontSize;
+  }
+  >.m_radio{
+    position: absolute;
+    left: -9999em;
+    &:checked + .m_radio-img{
+      background-image: url(../imgs/calc/select.png);
+    }
+  }
+  >.m_radio-img{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-image: url(../imgs/calc/uncheck.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+}
+
+//省略号
+.m_ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
